@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+           nav#nav1{margin-top: 24px;}
+           nav#nav1 > a{background: #C2DFFF; color: #000; padding: 10px; border-radius: 5px; font-family: "arial black", gadget, sans-serif;}
+        </style>
+<script>
+    var bleep = new Audio();
+    bleep.src = "bleep.mp3"
+</script>
+    </head>
+    <body>
+        <nav id="nav1">
+            <a href="#" onmousedown="bleep.play()">Done</a>
+            <a href="#" onmousedown="bleep.play()">Reset</a>
+        </nav>
+    </body>
+</html>
