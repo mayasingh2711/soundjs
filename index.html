@@ -4,11 +4,34 @@
         <style type="text/css">
            nav#nav1{margin-top: 20px;}
            nav#nav1 > a{background: #C2DFFF; color: #fff; padding: 13px; border-radius: 4px; font-family: "arial black","arial bold", gadget, sans-serif;}
+           .input-group {width: 98%;margin: 0 1%;max-width: 600px;}
+           .input-group label{font-size: 1.5em;}
+           .input-group input{margin: 10px 0;height: 30px;line-height: 30px;font-size: 25px;width: 100%;}
         </style>
-<script>
-    var bleep = new Audio();
-    bleep.src = "bleep.mp3"
-</script>
+        <script>
+            
+            var soundsArr = ["bleep.mp3", "ding.mp3"];
+                 
+            for (var i = 0; i < soundsArr.length; i++) {
+                // remove the file extension
+                var cleanFileName = soundsArr[i].substr(0, soundsArr[i].lastIndexOf('.'));
+
+                // create new audio elements for all files in array                                
+                window[cleanFileName] = new Audio();
+                window[cleanFileName].src = soundsArr[i];
+                
+            }
+            
+            function playAudio(audioFile){
+                audioFile.play();
+            }
+
+            function pauseAudio(audioFile){
+                audioFile.pause();
+                audioFile.currentTime = 0;
+            }
+
+        </script>
     </head>
     <body>
         <nav id="nav1">
@@ -17,5 +40,11 @@
         </nav>
         <h1>This is a  sound Playing app</h1>
         <h2>tap hello or bye to hear the song</h2>
+        <hr>
+        <div class="input-group">
+            <label for="openField">Type to hear a sound</label><br/>
+            <input type="text" name="openField" onkeydown="playAudio(ding)" onkeyup="pauseAudio(ding)" >
+        </div>
+
     </body>
 </html>
